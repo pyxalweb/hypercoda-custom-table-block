@@ -1,0 +1,42 @@
+// ***********************************
+//  WordPress Tables: Mobile
+//  example: https://codepen.io/pyxal/pen/bGzmPpM
+//  Requires: 'custom-table-block' plugin
+//  2023-12-04 by Alex Winter / HyperCoda
+// ***********************************
+// Hide newly generated mobile tables on large viewports
+// but then show them on smaller viewports
+.wp-block-table__new-table-a {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: table;
+  }
+}
+
+// Hide original table on small viewports
+figure.wp-block-table {
+  table:not([class]) {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+// Important styling for newly generated mobile tables
+/* stylelint-disable selector-max-compound-selectors */
+.wp-block-table__new-table-a {
+  tbody {
+    tr {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      padding: 0.5em;
+
+      td {
+        display: block;
+        padding: 0;
+      }
+    }
+  }
+}
